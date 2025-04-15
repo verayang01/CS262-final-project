@@ -89,7 +89,10 @@ Stores server configuration and other information including data files, board si
 
 ## User Guide and Walkthrough
 ### 1. Authentication
-![Authentication Page](auth_page.png)
+<div align="center">
+<img src="auth_page.png" alt="Authentication Page" width="400"/>
+</div>
+
 - Sign Up:
 If you have not signed up before, click "Sign Up" and enter your username and password to create an account. Note that username should not contain spaces or newline characters. After signing up, you will be brought to the login screen to authenticate.
 
@@ -97,7 +100,10 @@ If you have not signed up before, click "Sign Up" and enter your username and pa
 After signing up or if you already have an account, enter your username and password to login. Click "Login" to authenticate.
 
 ### 2. Homepage
-![Homepage](homepage.png)
+<div align="center">
+<img src="homepage.png" alt="Homepage" width="400"/>
+</div>
+
 - After successful login, you'll see the home screen. 
 - The homepage shows your current game credits and the number of players online. 
 
@@ -111,7 +117,10 @@ After signing up or if you already have an account, enter your username and pass
     - Log Out: Log out of your account.
 
 ### 3. Start Game and Gameplay
-![Start Game](start_game.png)
+<div align="center">
+<img src="start_game.png" alt="Start Game" width="400"/>
+</div>
+
 - Starting a Game:
 Click "Start Game" on homepage to join the public queue. A waiting message will appear if no other players are in the queue. Otherwise, you will be matched immediately with another online player in the queue. 
 
@@ -123,7 +132,10 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
     - After the game ends, you will see your win/loss results and credit changes. 
 
 ### 4. Matching Room
-![Matching Room](matching_room.png)
+<div align="center">
+<img src="matching_room.png" alt="Matching Room" width="400"/>
+</div>
+
 - Click "Matching Room" on homepage to enter the matching room. 
 - View or search for players in the matching room:
     - The left panel will show available players in the matching room and their game credits.
@@ -140,33 +152,49 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
     - Click on an invite and click "Decline" to decline the invite.
 
 ### 5. View Live Games
-![View Live Games](view_live_games.png)
+<div align="center">
+<img src="view_live_games.png" alt="View Live Games" width="400"/>
+</div>
+
 - Click "View Live Games" on homepage to see the list of ongoing games. 
 - Select a game and click "View Game" to enter the live game viewer mode. 
 
-![Live Game Example](live_game_example.png)
+<div align="center">
+<img src="live_game_example.png" alt="Live Game Example" width="400"/>
+</div>
 - As a viewer you can see the live game board, who the players are, their stone colors, and the turn timer. 
 - Click "Close Viewer" to exit the current viewer. 
 
 ### 6. User Statistics and Game History Replay
-![Game History](game_history.png)
+<div align="center">
+<img src="game_history.png" alt="Game History" width="400"/>
+</div>
+
 - Click "Game History" on homepage to see your past game history. You can see who the opponent was, game results, credit changes, and the date and time of the game.
 - Select a past game and click "View Replay" to replay the seleted game.
 
-![Game History Replay](game_history_replay.png)
+<div align="center">
+<img src="game_history_replay.png" alt="Game History Replay" width="400"/>
+</div>
 - The game replay mode allows you to watch a past game move-by-move:
     - Step through moves forward/backward by clicking ">/<".
     - Or, view an auto-replay by clicking ">>/<<".
     - The game moves are numbered to reflect their order of placement.
 
 ### 7. Leaderboard
-![Leaderboard](leaderboard.png)
+<div align="center">
+<img src="leaderboard.png" alt="Leaderboard" width="400"/>
+</div>
+
 - Click "Leaderboard" on homepage to see the current leaderboard, which includes the top 100 players ranked by their game credits and number of wins.
 
 ### 8. Account Management
 - Click "Delete Account" on homescreen to delete your account.
 - A prompt will ask you to confirm deletion. After deleting your account, your data will be permanently removed. Your username will show as "account deleted" on other players' game history. 
-![Delete Account](delete_account.png)
+<div align="center">
+<img src="delete_account.png" alt="Delete Account" width="300"/>
+</div>
+
 - After deleting your account, you will be redirected to the login screen.
 
 ### 9. Game Credit Calculation
