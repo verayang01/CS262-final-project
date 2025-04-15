@@ -90,7 +90,7 @@ Stores server configuration and other information including data files, board si
 ## User Guide and Walkthrough
 ### 1. Authentication
 <div align="center">
-<img src="auth_page.png" alt="Authentication Page" width="400"/>
+<img src="figures/auth_page.png" alt="Authentication Page" width="420"/>
 </div>
 
 - Sign Up:
@@ -101,7 +101,7 @@ After signing up or if you already have an account, enter your username and pass
 
 ### 2. Homepage
 <div align="center">
-<img src="homepage.png" alt="Homepage" width="400"/>
+<img src="figures/homepage.png" alt="Homepage" width="420"/>
 </div>
 
 - After successful login, you'll see the home screen. 
@@ -118,7 +118,7 @@ After signing up or if you already have an account, enter your username and pass
 
 ### 3. Start Game and Gameplay
 <div align="center">
-<img src="start_game.png" alt="Start Game" width="400"/>
+<img src="figures/start_game.png" alt="Start Game" width="420"/>
 </div>
 
 - Starting a Game:
@@ -133,7 +133,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 
 ### 4. Matching Room
 <div align="center">
-<img src="matching_room.png" alt="Matching Room" width="400"/>
+<img src="figures/matching_room.png" alt="Matching Room" width="420"/>
 </div>
 
 - Click "Matching Room" on homepage to enter the matching room. 
@@ -153,14 +153,14 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 
 ### 5. View Live Games
 <div align="center">
-<img src="view_live_games.png" alt="View Live Games" width="400"/>
+<img src="figures/view_live_games.png" alt="View Live Games" width="420"/>
 </div>
 
 - Click "View Live Games" on homepage to see the list of ongoing games. 
 - Select a game and click "View Game" to enter the live game viewer mode. 
 
 <div align="center">
-<img src="live_game_example.png" alt="Live Game Example" width="400"/>
+<img src="figures/live_game_example.png" alt="Live Game Example" width="420"/>
 </div>
 
 - As a viewer you can see the live game board, who the players are, their stone colors, and the turn timer. 
@@ -168,14 +168,14 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 
 ### 6. User Statistics and Game History Replay
 <div align="center">
-<img src="game_history.png" alt="Game History" width="400"/>
+<img src="figures/game_history.png" alt="Game History" width="420"/>
 </div>
 
 - Click "Game History" on homepage to see your past game history. You can see who the opponent was, game results, credit changes, and the date and time of the game.
 - Select a past game and click "View Replay" to replay the seleted game.
 
 <div align="center">
-<img src="game_history_replay.png" alt="Game History Replay" width="400"/>
+<img src="figures/game_history_replay.png" alt="Game History Replay" width="420"/>
 </div>
 
 - The game replay mode allows you to watch a past game move-by-move:
@@ -185,7 +185,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 
 ### 7. Leaderboard
 <div align="center">
-<img src="leaderboard.png" alt="Leaderboard" width="400"/>
+<img src="figures/leaderboard.png" alt="Leaderboard" width="420"/>
 </div>
 
 - Click "Leaderboard" on homepage to see the current leaderboard, which includes the top 100 players ranked by their game credits and number of wins.
@@ -194,7 +194,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 - Click "Delete Account" on homescreen to delete your account.
 - A prompt will ask you to confirm deletion. After deleting your account, your data will be permanently removed. Your username will show as "account deleted" on other players' game history. 
 <div align="center">
-<img src="delete_account.png" alt="Delete Account" width="300"/>
+<img src="figures/delete_account.png" alt="Delete Account" width="300"/>
 </div>
 
 - After deleting your account, you will be redirected to the login screen.
