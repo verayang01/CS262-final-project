@@ -162,6 +162,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 <div align="center">
 <img src="live_game_example.png" alt="Live Game Example" width="400"/>
 </div>
+
 - As a viewer you can see the live game board, who the players are, their stone colors, and the turn timer. 
 - Click "Close Viewer" to exit the current viewer. 
 
@@ -176,6 +177,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 <div align="center">
 <img src="game_history_replay.png" alt="Game History Replay" width="400"/>
 </div>
+
 - The game replay mode allows you to watch a past game move-by-move:
     - Step through moves forward/backward by clicking ">/<".
     - Or, view an auto-replay by clicking ">>/<<".
