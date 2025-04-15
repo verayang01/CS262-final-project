@@ -20,7 +20,7 @@ Five-in-a-Row, also called Gomoku, is a classic strategy board game where two pl
 
 ## Installation and Running
 
-### 1. Clone or download the project files
+### 1. Clone or Download the Project Files
    - `client.py` - The game client
    - `server.py` - The game server 
    - `shared.py` - Shared data structures and protocol
