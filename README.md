@@ -200,8 +200,12 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 - After deleting your account, you will be redirected to the login screen.
 
 ### 9. Game Credit Calculation
-Credits are awarded based on:
-- Opponent skill difference: Reward is reduced if the higher-credit player wins, and increased if the lower-credit player wins. 
-- Average player credits: Credit changes are in general larger for games between high-credit players.
-- Game length: Shorter games award more credits to the winner to add reward for stone efficiency.
+- At the end of a game, game credit changes are calculated. The winner has their game credits incremeted while the loser has their game credits deducted. 
+- You have a starting and minimum game credit 0.
+- Credit changes consider the following factors:
+    - Opponent skill difference: Reward is reduced if the higher-credit player wins to refelct an expected outcome, and reward is increased if the lower-credit player wins to reflect an upset. 
+    - Average player credits: Credit changes are in general larger for games between high-credit players.
+    - Game length: Shorter games lead to higher rewards for the winner to incentivize efficient stone placement.
+- Winner will have an ending credit balance that equals their original balance plus the credit change. Loser will have an ending credit balance that equals their original balance minus the credit change, or 0, whichever is greater.
+
 
