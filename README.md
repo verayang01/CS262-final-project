@@ -133,7 +133,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 
 ### 4. Matching Room
 <div align="center">
-<img src="figures/matching_room.png" alt="Matching Room" width="420"/>
+<img src="figures/matching_room_red.png" alt="Matching Room" width="420"/>
 </div>
 
 - Click "Matching Room" on homepage to enter the matching room. 
