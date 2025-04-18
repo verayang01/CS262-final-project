@@ -180,7 +180,7 @@ Click "Start Game" on homepage to join the public queue. A waiting message will 
 
 - The game replay mode allows you to watch a past game move-by-move:
     - Step through moves forward/backward by clicking ">/<".
-    - Or, view an auto-replay by clicking ">>/<<".
+    - Or, view an auto-replay by clicking ">>" and go back to start by clicking "<<". 
     - The game moves are numbered to reflect their order of placement.
 
 ### 7. Leaderboard
