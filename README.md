@@ -1,4 +1,4 @@
-# CS 262 Final Project - A Distributed Multiplayer System for Five-in-a-row
+# CS 262 Final Project - A Distributed Multiplayer System for Five-in-a-Row
 Hanying Feng and Vera Yang
 
 ## Introduction
