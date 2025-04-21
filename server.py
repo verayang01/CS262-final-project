@@ -34,6 +34,8 @@ class Database:
         self.users_file = users_file
         self.games_file = games_file
         self.live_games_file = live_games_file
+        self._prev_live_info = None  # Initialize as None
+        self._prev_live_info_lock = threading.Lock()  # Add thread safety
         self._ensure_files_exist() # Create files if they don't exist
 
     def _ensure_files_exist(self):
@@ -99,15 +101,6 @@ class Database:
         histories = self._load_game_histories()
         return [GameHistory(**h) for h in histories if h['player1'] == username or h['player2'] == username]
 
-    def get_all_histories(self) -> List[GameHistory]:
-        """
-        Retrieves all game histories stored in the database.
-        
-        Returns:
-            List[GameHistory]: Complete list of all game history objects
-        """
-        return [GameHistory(**h) for h in self._load_game_histories()]
-
     def get_live_games(self) -> List[Dict]:
         """
         Retrieves summary information about all currently active games.
@@ -129,16 +122,24 @@ class Database:
                 'current_player': game['current_player']
             })
         return live_games
-
+    
     def _load_users(self) -> Dict:
         """
         Internal method to load all user data from the users file.
-        
+
         Returns:
             Dict: Dictionary mapping usernames to user data dictionaries
         """
-        with open(self.users_file, 'r') as f:
-            return json.load(f)
+        retries = 5
+        for attempt in range(retries):
+            try:
+                with open(self.users_file, 'r') as f:
+                    return json.load(f)
+            except json.JSONDecodeError:
+                if attempt < retries - 1:
+                    continue  # Try again
+                else:
+                    raise
 
     def _save_users(self, users: Dict):
         """
@@ -152,13 +153,22 @@ class Database:
 
     def _load_game_histories(self) -> List:
         """
-        Internal method to load all game histories from the histories file.
-        
+        Internal method to load all game histories from the game file.
+
         Returns:
             List: List of all game history dictionaries
         """
-        with open(self.games_file, 'r') as f:
-            return json.load(f)
+        retries = 5
+        for attempt in range(retries):
+            try:
+                with open(self.games_file, 'r') as f:
+                    return json.load(f)
+            except json.JSONDecodeError:
+                if attempt < retries - 1:
+                    continue  # Try again
+                else:
+                    raise
+
 
     def _save_game_histories(self, histories: List):
         """
@@ -200,17 +210,24 @@ class Database:
     def _load_live_games(self) -> Dict:
         """
         Internal method to load all active game states from the live games file.
-        Handles file corruption by resetting to empty dictionary if needed.
-        
-        Returns:
-            Dict: Dictionary mapping game IDs to game state dictionaries
+        Returns last known good state if current read fails.
         """
         try:
             with open(self.live_games_file, 'r') as f:
                 content = f.read().strip()
-                return json.loads(content) if content else {}
-        except json.JSONDecodeError:
-            return {}
+                if not content:
+                    return self._get_prev_live_info()        
+                current_info = json.loads(content)
+                with self._prev_live_info_lock:
+                    self._prev_live_info = current_info  # Update last known good
+                return current_info
+        except json.JSONDecodeError as e:
+            return self._get_prev_live_info()
+
+    def _get_prev_live_info(self) -> Dict:
+        """Thread-safe access to previous live info"""
+        with self._prev_live_info_lock:
+            return self._prev_live_info.copy() if self._prev_live_info else {}
         
     def delete_live_game(self, game_id: str):
         """
@@ -290,8 +307,6 @@ class UserManager:
             return self._handle_logout(message)
         elif message.type == MessageType.GET_STATS_REQUEST:
             return self._handle_get_stats(message)
-        elif message.type == MessageType.SIGNUP_REQUEST:
-            return self._handle_signup(message)
         elif message.type == MessageType.ACCOUNT_DELETE_REQUEST:
             return self._handle_delete_account(message)
         return None

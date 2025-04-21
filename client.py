@@ -104,8 +104,8 @@ class AuthUI:
         if not username:
             messagebox.showerror("Error", "Username cannot be empty.")
             return
-        if ' ' in username or '\n' in username:
-            messagebox.showerror("Error", "Username cannot contain spaces or newlines.")
+        if ' ' in username or '\n' in username or ' ' in password or '\n' in password:
+            messagebox.showerror("Error", "Username and password cannot contain spaces or newlines.")
             return     
         if not password:
             messagebox.showerror("Error", "Password cannot be empty.")
@@ -1349,7 +1349,7 @@ class LeaderboardUI:
         self.title_label = tk.Label(self.frame, text="Leaderboard", font=('Helvetica', 16))
         self.title_label.pack(pady=10)
         # Treeview widget to display leaderboard data in tabular format
-        self.leaderboard_tree = ttk.Treeview(self.frame, columns=('rank', 'username', 'credits', 'wins', 'losses'), show='headings', height=13)
+        self.leaderboard_tree = ttk.Treeview(self.frame, columns=('rank', 'username', 'credits', 'wins', 'losses'), show='headings', height=11)
         self.leaderboard_tree.heading('rank', text='Rank')
         self.leaderboard_tree.column('rank', width=100, anchor='center')
         self.leaderboard_tree.heading('username', text='Username')
@@ -1364,10 +1364,11 @@ class LeaderboardUI:
         self.leaderboard_tree.pack(pady=10, padx=10, fill=tk.BOTH, expand=True)
         self.leaderboard_tree.tag_configure('oddrow', background='#f8f9fa')
         self.leaderboard_tree.tag_configure('evenrow', background='#e9ecef')
-        # Back button
+        # Action button
+        self.refresh_button = tk.Button(self.frame, text="Refresh", command=self.refresh, width=15, height=2)
+        self.refresh_button.pack(pady=10)
         self.back_button = tk.Button(self.frame, text="Back to Home", command=self.client.show_home_ui, width=15, height=2)
-        self.back_button.pack(pady=10)
-        # Window configuration
+        self.back_button.pack()
         self.root.geometry("700x450")
         self.frame.pack(padx=20, pady=20)
 
@@ -1391,6 +1392,15 @@ class LeaderboardUI:
                 player['wins'],
                 player['losses']
             ), tags=(tag,))
+    
+    def refresh(self):
+        """
+        Refresh with the latest leaderboard data.
+        """
+        self.client.send_message(Message(
+            MessageType.GET_LEADERBOARD_REQUEST,
+            {'username': self.client.username}
+        ))
 
 class MatchingRoomUI:
     """
@@ -2104,8 +2114,9 @@ class GameClient:
             if hasattr(self, 'matching_room_ui') and self.matching_room_ui:
                 self.matching_room_ui._remove_invitation(message.data.get('request_id'))
             return
-        elif hasattr(self, 'matching_room_ui') and self.matching_room_ui and 'to' in message.data: # Handle the response of receiver
-            self.matching_room_ui.handle_match_response(False, message.data['to'])
+        elif message.type == MessageType.MATCH_DECLINED: # Match invitation is declined
+            if hasattr(self, 'matching_room_ui') and self.matching_room_ui:
+                self.matching_room_ui.handle_match_response(False, message.data['to'])
         
     def show_auth_ui(self):
         """Displays the authentication (login/signup) screen."""
