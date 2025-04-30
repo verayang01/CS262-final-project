@@ -53,7 +53,6 @@ class TestSharedModels(unittest.TestCase):
             player1="p1",
             player2="p2",
             winner="p1",
-            start_time="2023-01-01",
             end_time="2023-01-01",
             moves=[(1,1), (2,2)],
             credits_change={"p1": 10, "p2": -10}
@@ -164,7 +163,6 @@ class TestDatabase(unittest.TestCase):
             player1="p1",
             player2="p2",
             winner="p1",
-            start_time="2023-01-01",
             end_time="2023-01-01",
             moves=[(1,1)],
             credits_change={"p1": 10}
@@ -604,7 +602,6 @@ class TestGameManager(unittest.TestCase):
             player1="player1",
             player2="player2",
             winner="player1",
-            start_time="2023-01-01",
             end_time="2023-01-01",
             moves=[(1,1), (2,2)],
             credits_change={"player1": 10, "player2": -10}
@@ -943,7 +940,6 @@ class TestClientUI(unittest.TestCase):
             'player1': 'player1',
             'player2': 'player2',
             'winner': 'player1',
-            'start_time': '2023-01-01',
             'end_time': '2023-01-01',
             'moves': [(1,1), (2,2)],
             'credits_change': {'player1': 10}

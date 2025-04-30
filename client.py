@@ -1970,7 +1970,6 @@ class GameClient:
             root (tk.Tk): The root Tkinter window.
         """
         self.root = root
-        self.root.protocol("WM_DELETE_WINDOW", self.on_window_close)
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connected = False
         # Load configuration from config.ini
@@ -2197,17 +2196,6 @@ class GameClient:
                 self.current_ui.stop_polling()  # Stop polling if leaving home
             self.current_ui.frame.pack_forget()
 
-    def on_window_close(self):
-        """
-        Handles application window close event.
-        Notifies server if currently in a game before exiting.
-        """
-        if self.current_game_id:
-            self.send_message(Message(
-                MessageType.PLAYER_DISCONNECTED,
-                {'username': self.username, 'game_id': self.current_game_id}
-            ))
-        self.root.destroy()
 
 if __name__ == "__main__":
     root = tk.Tk()
